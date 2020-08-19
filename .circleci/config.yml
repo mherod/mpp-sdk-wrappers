@@ -17,6 +17,6 @@ jobs:
       - run: sudo gem install cocoapods cocoapods-generate
       - run: cat $BASH_ENV
       - run: sudo xcode-select --switch /Applications/Xcode.app
-      - run: yes | sdkmanager --licenses
-      - run: yes | sdkmanager --update
+      - run: until yes | sdkmanager --licenses ; do sleep 2 ; done
+      - run: until yes | sdkmanager --update ; do sleep 2 ; done
       - run: ./gradlew build allTests --info
