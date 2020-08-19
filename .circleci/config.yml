@@ -10,7 +10,13 @@ jobs:
       - checkout
       - run: sudo xcode-select --switch /Library/Developer/CommandLineTools
       - run: echo "export SDKROOT=$(xcrun --show-sdk-path)" >> $BASH_ENV
+      - run: echo "export ANDROID_HOME=${HOME}/android-sdk/" >> $BASH_ENV
+      - run: mkdir -p "$ANDROID_HOME"
+      - run: curl --silent --show-error --location --fail --retry 3 --output "${HOME}/sdk-tools.zip" https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip && unzip -q "${HOME}/sdk-tools.zip" -d "${ANDROID_HOME}" && rm "${HOME}/sdk-tools.zip"
+      - run: echo "export PATH=${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${PATH}" >> $BASH_ENV
       - run: sudo gem install cocoapods cocoapods-generate
       - run: cat $BASH_ENV
       - run: sudo xcode-select --switch /Applications/Xcode.app
-      - run: ./gradlew iosTest --info
+      - run: yes | sdkmanager --licenses
+      - run: yes | sdkmanager --update
+      - run: ./gradlew build allTests --info
