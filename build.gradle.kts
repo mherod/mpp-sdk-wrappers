@@ -24,7 +24,7 @@ kotlin {
     }
     cocoapods {
         summary = "mpp-sdk-wrappers"
-        homepage = "https://github.com/JetBrains/kotlin"
+        homepage = "https://github.com/mherod/mpp-sdk-wrappers"
         pod("Reachability", "~> 3.2")
     }
     sourceSets {

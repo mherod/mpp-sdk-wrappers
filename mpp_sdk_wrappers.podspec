@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mpp_sdk_wrappers'
     spec.version                  = '1.0-SNAPSHOT'
-    spec.homepage                 = 'https://github.com/JetBrains/kotlin'
+    spec.homepage                 = 'https://github.com/mherod/mpp-sdk-wrappers'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
     spec.license                  = ''
