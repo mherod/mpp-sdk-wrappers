@@ -6,12 +6,11 @@ jobs:
     macos:
       xcode: 11.0.0
 
-    environment:
-      SDKROOT: /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/
-
     steps:
       - checkout
       - run: sudo xcode-select --switch /Library/Developer/CommandLineTools
+      - run: echo "export SDKROOT=$(xcrun --show-sdk-path)" >> $BASH_ENV
       - run: sudo gem install cocoapods cocoapods-generate
       - run: cat $BASH_ENV
+      - run: sudo xcode-select --switch /Applications/Xcode.app
       - run: ./gradlew iosTest --info
