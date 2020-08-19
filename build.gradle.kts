@@ -43,6 +43,9 @@ kotlin {
         val androidTest by getting
         val iosMain by getting
         val iosTest by getting
+        all {
+            languageSettings.enableLanguageFeature("InlineClasses")
+        }
     }
 }
 android {
