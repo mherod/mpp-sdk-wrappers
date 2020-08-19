@@ -1,4 +1,4 @@
-package mpp
+package mpp.networking
 
 import cocoapods.Reachability.Reachability
 

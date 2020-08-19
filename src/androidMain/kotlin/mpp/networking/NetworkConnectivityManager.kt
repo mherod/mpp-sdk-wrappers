@@ -1,4 +1,4 @@
-package mpp
+package mpp.networking
 
 import android.content.Context
 import android.net.ConnectivityManager
